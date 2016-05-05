@@ -3,12 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/splash"
+    android:id="@+id/splash_rl_root"
     tools:context=".SplashActivity">
 
-    <ImageView
-        android:scaleType="fitXY"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@mipmap/splash"
-         />
+    <TextView
+        android:id="@+id/splah_tv_version_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/spalsh_version_code"
+        android:layout_marginBottom="100dp"
+        />
+    <TextView
+        android:id="@+id/splash_tv_version_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_alignParentBottom="true"
+        android:text="@string/splash_version_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        />
+
 </RelativeLayout>

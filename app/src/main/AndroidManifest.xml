@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.demo.wanbd.androiddemo">
+    package="com.demo.wanbd.androiddemo"
+    android:versionCode="1"
+    android:versionName="土豆版"
+    >
 
     <application
         android:allowBackup="true"
