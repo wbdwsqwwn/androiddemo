@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@mipmap/splash"
     android:id="@+id/splash_rl_root"
-    tools:context=".SplashActivity">
+    tools:context=".activity.SplashActivity">
 
     <TextView
         android:id="@+id/splah_tv_version_code"

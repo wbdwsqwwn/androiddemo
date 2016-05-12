@@ -2,4 +2,5 @@
     <string name="app_name">AndroidDemo</string>
     <string name="spalsh_version_code">版本号</string>
     <string name="splash_version_name">版本名</string>
+    <string name="versionurl">http://172.18.1.12:8080/version.json</string>
 </resources>
