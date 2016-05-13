@@ -24,13 +24,12 @@ import com.demo.wanbd.androiddemo.R;
 import com.demo.wanbd.androiddemo.model.VersionModel;
 import com.demo.wanbd.androiddemo.utils.MyConstant;
 import com.demo.wanbd.androiddemo.utils.SPUtils;
-import com.lidroid.xutils.HttpUtils;
-import com.lidroid.xutils.exception.HttpException;
-import com.lidroid.xutils.http.ResponseInfo;
-import com.lidroid.xutils.http.callback.RequestCallBack;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -93,28 +92,39 @@ public class SplashActivity extends AppCompatActivity {
 
     private void downloadNewApk() {
         final String apkName = "newApk.apk";
-        HttpUtils httpUtils = new HttpUtils(5000);
         File sdDir = Environment.getExternalStorageDirectory();
-        File apkFile = new File(sdDir, apkName);
+        final File apkFile = new File(sdDir, apkName);
         if (apkFile.exists()) {
             apkFile.delete();
         }
-        httpUtils.download(mVersionModel.getUrl(), sdDir.getAbsolutePath() + "/" + apkName, new RequestCallBack<File>() {
+        RequestParams params = new RequestParams(mVersionModel.getUrl());
+        params.setSaveFilePath(apkFile.getAbsolutePath());
+        x.http().get(params, new Callback.CommonCallback<File>() {
             @Override
-            public void onSuccess(ResponseInfo<File> responseInfo) {
-                // 下载完成 跳到安装界面
+            public void onSuccess(File result) {
+                System.out.println("onSuccess===>>>");
                 Intent intent = new Intent();
                 intent.setAction("android.intent.action.VIEW");
                 intent.addCategory("android.intent.category.DEFAULT");
-                File file = new File(Environment.getExternalStorageDirectory(), apkName);
-                intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+//                File file = new File(Environment.getExternalStorageDirectory(), apkName);
+                intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
                 startActivityForResult(intent, 1);
             }
 
             @Override
-            public void onFailure(HttpException e, String s) {
-                // 下载失败 进入主界面
+            public void onError(Throwable ex, boolean isOnCallback) {
+                System.out.println("onError====>>>>" + ex.toString());
                 startHome();
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
             }
         });
     }
