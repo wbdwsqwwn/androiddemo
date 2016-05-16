@@ -140,7 +140,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //        requestWindowFeature(Window.FEATURE_NO_TITLE);
         // TODO 模拟数据
-        SPUtils.putBoolean(getApplicationContext(), MyConstant.AUTOUPDATE, true);
+//        SPUtils.putBoolean(getApplicationContext(), MyConstant.AUTOUPDATE, true);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
@@ -243,6 +243,7 @@ public class SplashActivity extends AppCompatActivity {
     private void startHome() {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void checkVersion() {
