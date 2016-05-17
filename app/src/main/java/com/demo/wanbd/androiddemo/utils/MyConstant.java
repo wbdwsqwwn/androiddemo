@@ -6,4 +6,5 @@ package com.demo.wanbd.androiddemo.utils;
 public interface MyConstant {
     String SPFILENAME = "config";
     String AUTOUPDATE = "autoupdate";
+    String PASSWORD = "password";
 }
