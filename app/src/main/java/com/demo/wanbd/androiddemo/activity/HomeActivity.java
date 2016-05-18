@@ -2,7 +2,7 @@ package com.demo.wanbd.androiddemo.activity;
 
 import android.animation.ObjectAnimator;
 import android.app.Activity;
-import android.os.Bundle;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.View;
@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.demo.wanbd.androiddemo.R;
 import com.demo.wanbd.androiddemo.utils.MyConstant;
 import com.demo.wanbd.androiddemo.utils.SPUtils;
+import com.demo.wanbd.androiddemo.utils.ToastUtils;
 
 /**
  * Created by wanbd on 16/5/12.
@@ -33,21 +34,9 @@ public class HomeActivity extends Activity {
     private ImageView mHomeSetting;
     private AlertDialog mSetPwdDialog;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // 初始化view
-        initView();
-        // 初始化数据
-        initData();
-        // 初始化事件
-        initEvent();
-        // 初始化动画
-        initAnimation();
-    }
 
     private void initAnimation() {
-        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(mHomeLogo, "rotationY", 0,60,90,120,180,240,300,360);
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(mHomeLogo, "rotationY", 0, 60, 90, 120, 180, 240, 300, 360);
         objectAnimator.setDuration(2000);
         objectAnimator.setRepeatCount(ObjectAnimator.INFINITE);
         objectAnimator.start();
@@ -72,19 +61,73 @@ public class HomeActivity extends Activity {
     }
 
     private void showSetPasswordDialog() {
-
+        showMyDialog(false);
     }
 
     private void showEnterPasswordDialog() {
+        showMyDialog(true);
+    }
+
+    private void showMyDialog(final boolean isSetPassword) {
         AlertDialog.Builder ab = new AlertDialog.Builder(this);
 
         View layout = View.inflate(this, R.layout.dialog_setpassword, null);
         TextView tv_title = (TextView) layout.findViewById(R.id.dg_setpwd_title);
-        EditText et_password1 = (EditText) layout.findViewById(R.id.dg_setpwd_password1);
-        EditText et_password2 = (EditText) layout.findViewById(R.id.dg_setpwd_password2);
-        Button bt_cancel = (Button) layout.findViewById(R.id.dg_setpwd_cancel);
-        Button bt_sure = (Button) layout.findViewById(R.id.dg_setpwd_sure);
+        final EditText et_password1 = (EditText) layout.findViewById(R.id.dg_setpwd_password1);
+        final EditText et_password2 = (EditText) layout.findViewById(R.id.dg_setpwd_password2);
+        final Button bt_cancel = (Button) layout.findViewById(R.id.dg_setpwd_cancel);
+        final Button bt_sure = (Button) layout.findViewById(R.id.dg_setpwd_sure);
+        if (isSetPassword) {
+            et_password2.setVisibility(View.GONE);
+            tv_title.setText("输入密码");
+        }
 
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (v == bt_cancel) {
+                    // 点击取消
+                    mSetPwdDialog.dismiss();
+                } else if (v == bt_sure) {
+                    // 点击确定
+                    String password1 = et_password1.getText().toString().trim();
+                    String password2 = et_password2.getText().toString().trim();
+                    if (isSetPassword) {
+                        // 设置一个默认值
+                        password2 = "111";
+                    }
+                    if (isSetPassword) {
+                        // 已经设置过密码需要与保存的密码比较
+                        if (password1.equals(SPUtils.getString(getApplicationContext(), MyConstant.PASSWORD, ""))) {
+                            // 密码相同 跳转到手机防盗界面
+                            Intent intent = new Intent(HomeActivity.this, LostFindActivity.class);
+                            startActivity(intent);
+                        } else {
+                            // 密码不对
+//                            Toast.makeText(getApplicationContext(), "密码错误", Toast.LENGTH_SHORT);
+                            ToastUtils.showShortToast(getApplicationContext(), "密码错误");
+                            return;
+                        }
+                    } else {
+                        // 没有设置过密码 判断2次密码是否相同
+                        if (password1.equals(password2)) {
+                            SPUtils.putString(getApplicationContext(), MyConstant.PASSWORD, password1);
+//                            Toast.makeText(getApplicationContext(), "密码设置成功", Toast.LENGTH_SHORT);
+                            ToastUtils.showShortToast(getApplicationContext(), "密码设置成功");
+                        } else {
+//                            Toast.makeText(getApplicationContext(), "两次密码输入不一致", Toast.LENGTH_SHORT);
+                            ToastUtils.showShortToast(getApplicationContext(), "两次密码输入不一致");
+                            return;
+                        }
+
+                    }
+
+                }
+                mSetPwdDialog.dismiss();
+            }
+        };
+        bt_cancel.setOnClickListener(listener);
+        bt_sure.setOnClickListener(listener);
         ab.setView(layout);
         mSetPwdDialog = ab.create();
         mSetPwdDialog.show();

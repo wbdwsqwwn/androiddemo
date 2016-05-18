@@ -7,4 +7,5 @@ public interface MyConstant {
     String SPFILENAME = "config";
     String AUTOUPDATE = "autoupdate";
     String PASSWORD = "password";
+    String SETUPSUCCENSSED = "setupsuccessed";
 }
