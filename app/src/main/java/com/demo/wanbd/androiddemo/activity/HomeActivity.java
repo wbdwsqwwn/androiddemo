@@ -3,6 +3,8 @@ package com.demo.wanbd.androiddemo.activity;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.View;
@@ -34,6 +36,23 @@ public class HomeActivity extends Activity {
     private ImageView mHomeSetting;
     private AlertDialog mSetPwdDialog;
 
+//    @Override
+//    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+//        super.onCreate(savedInstanceState, persistentState);
+//        initView();
+//        initData();
+//        initEvent();
+//        initAnimation();
+//    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        initView();
+        initData();
+        initEvent();
+        initAnimation();
+    }
 
     private void initAnimation() {
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(mHomeLogo, "rotationY", 0, 60, 90, 120, 180, 240, 300, 360);

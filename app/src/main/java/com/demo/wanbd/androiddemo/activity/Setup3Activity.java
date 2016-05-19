@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.demo.wanbd.androiddemo.R;
 
-public class Setup3Activity extends AppCompatActivity {
+public class Setup3Activity extends BaseSetupActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

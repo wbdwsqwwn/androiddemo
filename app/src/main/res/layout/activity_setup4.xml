@@ -1,13 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="com.demo.wanbd.androiddemo.activity.Setup4Activity"
     >
+    <!--title-->
+    <TextView
+        style="@style/sutup_title_style"
+        android:text="4.恭喜您设置完成"
+        />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打钩开启防盗保护"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="防盗保护没有开启"
+        />
+    <!--四个点-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        >
 
-</RelativeLayout>
+        <ImageView
+            style="@style/setup_dot_unselected"
+            />
+        <ImageView
+            style="@style/setup_dot_unselected"
+            />
+        <ImageView
+            style="@style/setup_dot_unselected"
+            />
+        <ImageView
+            style="@style/setup_dot_selected"
+            />
+
+    </LinearLayout>
+    <!--图片和跳转按钮-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/step_4"
+            />
+        <Button
+            android:onClick="nextPage"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/home_dialog_setpassword_selector"
+            android:text="完成"
+            />
+        <ImageView
+            android:onClick="prePage"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/home_dialog_setpassword_selector"
+            android:src="@mipmap/pre"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

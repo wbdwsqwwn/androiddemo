@@ -1,15 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.demo.wanbd.androiddemo.activity.Setup3Activity"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.demo.wanbd.androiddemo.activity.Setup3Activity"
     >
     <!--title-->
     <TextView
         style="@style/sutup_title_style"
         android:text="3.设置安全号码"
         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SIM卡如果发生变化:\n报警短信发给安全号码"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="输入号码匹配"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择安全号码"
+        android:textSize="18sp"
+        android:background="@drawable/home_dialog_setpassword_selector"
+        />
+    <!--四个点-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        >
+
+        <ImageView
+            style="@style/setup_dot_unselected"
+            />
+        <ImageView
+            style="@style/setup_dot_unselected"
+            />
+        <ImageView
+            style="@style/setup_dot_selected"
+            />
+        <ImageView
+            style="@style/setup_dot_unselected"
+            />
+
+    </LinearLayout>
+    <!--图片和跳转按钮-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/step_3"
+            />
+        <ImageView
+            android:onClick="nextPage"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/home_dialog_setpassword_selector"
+            android:src="@mipmap/next"
+            />
+        <ImageView
+            android:onClick="prePage"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/home_dialog_setpassword_selector"
+            android:src="@mipmap/pre"
+            />
+
+    </RelativeLayout>
 
 </LinearLayout>
