@@ -8,4 +8,37 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--setup界面的标题-->
+    <style name="sutup_title_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:background">@mipmap/blue_bkg</item>
+    </style>
+
+    <style name="setup1_desc_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:drawableLeft">@mipmap/dialog_title_default_icon</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="setup_dot_unselected">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:src">@mipmap/presence_invisible</item>
+        <item name="android:layout_margin">2dp</item>
+    </style>
+
+    <style name="setup_dot_selected">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:src">@mipmap/presence_online</item>
+        <item name="android:layout_margin">2dp</item>
+    </style>
+
 </resources>
