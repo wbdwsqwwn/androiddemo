@@ -1,11 +1,11 @@
 package com.demo.wanbd.androiddemo.activity;
 
 import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +25,7 @@ import com.demo.wanbd.androiddemo.utils.ToastUtils;
 /**
  * Created by wanbd on 16/5/12.
  */
-public class HomeActivity extends Activity {
+public class HomeActivity extends AppCompatActivity {
 
     private static final String[] names = {"手机防盗", "通讯卫士", "软件管家", "进程管理", "流量统计", "病毒查杀", "缓存清理", "高级工具"};
     private static final String[] descs = {"手机丢失好找", "防骚扰防监听", "方便管理软件", "保持手机通畅", "注意流量超标", "手机安全保障", "手机快步如飞", "特性处理更好"};
@@ -157,6 +157,8 @@ public class HomeActivity extends Activity {
     }
 
     private void initView() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         setContentView(R.layout.activity_home);
         mHomeGv = (GridView) findViewById(R.id.home_gv);
         mHomeLogo = (ImageView) findViewById(R.id.home_top_iv);

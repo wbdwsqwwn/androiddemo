@@ -1,15 +1,24 @@
 package com.demo.wanbd.androiddemo.activity;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-
 import com.demo.wanbd.androiddemo.R;
 
 public class Setup1Activity extends BaseSetupActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void initView() {
+        super.initView();
         setContentView(R.layout.activity_setup1);
     }
+
+    @Override
+    public void startNextPage() {
+        startPage(Setup2Activity.class);
+    }
+
+    @Override
+    public void startPrePage() {
+        // 没有上一个按钮 不用处理
+    }
+
+
 }

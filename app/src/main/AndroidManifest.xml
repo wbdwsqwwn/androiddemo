@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <!--<activity android:name=".activity.HomeActivity" />-->
-        <activity android:name=".activity.HomeActivity"></activity>
+        <activity android:name=".activity.HomeActivity" />
         <activity android:name=".activity.Setup1Activity" />
         <activity android:name=".activity.Setup2Activity" />
         <activity android:name=".activity.Setup3Activity" />

@@ -56,7 +56,7 @@
             android:src="@mipmap/step_4"
             />
         <Button
-            android:onClick="nextPage"
+            android:onClick="setupFinish"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

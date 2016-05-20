@@ -2,6 +2,7 @@ package com.demo.wanbd.androiddemo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
 import com.demo.wanbd.androiddemo.R;
@@ -26,6 +27,8 @@ public class LostFindActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         setContentView(R.layout.activity_lost_find);
     }
 }

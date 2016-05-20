@@ -1,15 +1,22 @@
 package com.demo.wanbd.androiddemo.activity;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-
 import com.demo.wanbd.androiddemo.R;
 
 public class Setup2Activity extends BaseSetupActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void initView() {
+        super.initView();
         setContentView(R.layout.activity_setup2);
+    }
+
+    @Override
+    public void startNextPage() {
+        startPage(Setup3Activity.class);
+    }
+
+    @Override
+    public void startPrePage() {
+        startPage(Setup1Activity.class);
     }
 }
