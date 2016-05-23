@@ -19,6 +19,7 @@
         android:layout_marginTop="5dp"
         />
     <Button
+        android:id="@+id/bt_bindSIM"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:drawableRight="@mipmap/lock"
@@ -26,6 +27,7 @@
         android:textSize="18sp"
         android:layout_marginTop="10dp"
         android:background="@drawable/home_dialog_setpassword_selector"
+        android:onClick="bindSIM"
         />
     <!--四个点-->
     <LinearLayout

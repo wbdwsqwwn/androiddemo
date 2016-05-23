@@ -20,11 +20,13 @@
         android:layout_marginTop="5dp"
         />
     <EditText
+        android:id="@+id/et_inputSafeNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="输入号码匹配"
+        android:hint="输入安全号码"
         />
     <Button
+        android:onClick="selectSafeNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="选择安全号码"

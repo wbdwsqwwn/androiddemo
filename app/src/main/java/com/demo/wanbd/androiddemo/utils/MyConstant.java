@@ -8,4 +8,6 @@ public interface MyConstant {
     String AUTOUPDATE = "autoupdate";
     String PASSWORD = "password";
     String SETUPSUCCENSSED = "setupsuccessed";
+    String SIMNUMBER = "simnumber";
+    String SAFENUMBER = "safenumber";
 }

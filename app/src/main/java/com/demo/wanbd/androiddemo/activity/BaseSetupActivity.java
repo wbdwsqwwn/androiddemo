@@ -37,14 +37,14 @@ public abstract class BaseSetupActivity extends AppCompatActivity {
                 if (Math.abs(e1.getX() - e2.getX()) > Math.abs(e2.getY()- e1.getY())) {
                     //横向滑动
                     //判断速度
-                    if (Math.abs(velocityX) > 50){//
+                    if (Math.abs(velocityX) > 50){
                         //判断方向
                         if (velocityX < 0) {
                             //从左往右滑
-                            prePage(null);
+                            nextPage(null);
                         } else {
                             //从右往左滑
-                            nextPage(null);
+                            prePage(null);
                         }
                     }
                 }
@@ -69,8 +69,17 @@ public abstract class BaseSetupActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (mGd != null) {
+            mGd.onTouchEvent(event);
+            return true;
+        }
+        return super.onTouchEvent(event);
+    }
+
     public void nextPage(View v) {
-        LogUtils.i("BaseSetupActivity", "nextPage");
+//        LogUtils.i("BaseSetupActivity", "nextPage");
         startNextPage();
         nextPageAnimation();
     }
@@ -80,9 +89,13 @@ public abstract class BaseSetupActivity extends AppCompatActivity {
     }
 
     public void prePage(View v) {
-        LogUtils.i("BaseSetupActivity", "prePage");
+//        LogUtils.i("BaseSetupActivity", "prePage");
         startPrePage();
         prePageAnimation();
+    }
+
+    public void bindSIM(View v) {
+        LogUtils.i("BaseSetupActivity", "bindSIM");
     }
 
     private void prePageAnimation() {
