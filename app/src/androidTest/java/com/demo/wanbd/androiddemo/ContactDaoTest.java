@@ -1,6 +1,5 @@
 package com.demo.wanbd.androiddemo;
 
-import android.app.Application;
 import android.test.ApplicationTestCase;
 
 import com.demo.wanbd.androiddemo.dao.ContactDao;
@@ -10,11 +9,11 @@ import com.demo.wanbd.androiddemo.utils.LogUtils;
 import java.util.List;
 
 /**
- * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
+ * Created by wanbd on 16/5/24.
  */
-public class ApplicationTest extends ApplicationTestCase<Application> {
-    public ApplicationTest() {
-        super(Application.class);
+public class ContactDaoTest extends ApplicationTestCase {
+    public ContactDaoTest(Class applicationClass) {
+        super(applicationClass);
     }
 
     public void testGetAllContact() {

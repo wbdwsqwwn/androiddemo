@@ -1,5 +1,6 @@
 package com.demo.wanbd.androiddemo.activity;
 
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -51,5 +52,12 @@ public class Setup3Activity extends BaseSetupActivity {
 
     public void selectSafeNumber(View view) {
         LogUtils.i("Setup3Activity", "selectSafeNumber");
+        Intent intent = new Intent(this, FriendsActivity.class);
+        startActivityForResult(intent, 0);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
