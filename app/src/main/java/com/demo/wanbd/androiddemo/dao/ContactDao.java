@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.net.Uri;
 
 import com.demo.wanbd.androiddemo.model.ContactModel;
+import com.demo.wanbd.androiddemo.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,10 @@ public class ContactDao {
         List<ContactModel> contacts = new ArrayList();
         Uri uriContacts = Uri.parse("content://com.android.contacts/contacts");
         Uri uriData = Uri.parse("content://com.android.contacts/data");
+//        Uri uriContacts = ContactsContract.Contacts.CONTENT_URI;
+//        Uri uriData = ContactsContract.Data.CONTENT_URI;
+        LogUtils.i("ContactDao", "COntacts URI = >>>>>>" + uriContacts);
+        LogUtils.i("ContactDao", "Data URi = >>>>>>>" + uriData);
         ContactModel contactModel = null;
         String contact_id = null;
         Cursor cursor = context.getContentResolver().query(uriContacts, new String[]{"name_raw_contact_id"}, null, null, null);

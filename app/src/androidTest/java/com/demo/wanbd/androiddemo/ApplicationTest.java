@@ -20,5 +20,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     public void testGetAllContact() {
         List<ContactModel> list = ContactDao.getAllContact(getContext());
         LogUtils.i("test  test test ====>>>>", list.toString());
+        System.out.println("test  test test ====>>>>" + list.toString());
+        assertEquals(117, list.size());
     }
 }
