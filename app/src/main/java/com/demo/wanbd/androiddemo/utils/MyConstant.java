@@ -10,4 +10,5 @@ public interface MyConstant {
     String SETUPSUCCENSSED = "setupsuccessed";
     String SIMNUMBER = "simnumber";
     String SAFENUMBER = "safenumber";
+    String ISSETUPFINISH = "issetupfinish";
 }

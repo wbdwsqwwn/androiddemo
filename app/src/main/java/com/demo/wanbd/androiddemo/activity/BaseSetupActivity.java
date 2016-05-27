@@ -9,7 +9,6 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.demo.wanbd.androiddemo.R;
-import com.demo.wanbd.androiddemo.utils.LogUtils;
 
 /**
  * Created by wanbd on 2016/5/19.
@@ -94,9 +93,9 @@ public abstract class BaseSetupActivity extends AppCompatActivity {
         prePageAnimation();
     }
 
-    public void bindSIM(View v) {
-        LogUtils.i("BaseSetupActivity", "bindSIM");
-    }
+//    public void bindSIM(View v) {
+//        LogUtils.i("BaseSetupActivity", "bindSIM");
+//    }
 
     private void prePageAnimation() {
         overridePendingTransition(R.anim.pre_enter_anim, R.anim.pre_exit_anim);
