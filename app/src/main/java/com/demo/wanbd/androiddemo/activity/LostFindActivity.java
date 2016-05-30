@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.demo.wanbd.androiddemo.R;
 import com.demo.wanbd.androiddemo.utils.MyConstant;
@@ -30,5 +31,16 @@ public class LostFindActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         setContentView(R.layout.activity_lost_find);
+    }
+
+    /**
+     * 重新进入设置向导界面
+     * @param view
+     */
+    public void clickToSetupActivity(View view) {
+        Intent intent = new Intent(this, Setup1Activity.class);
+        startActivity(intent);
+        SPUtils.putBoolean(getApplicationContext(), MyConstant.SETUPSUCCENSSED, true);
+        finish();
     }
 }

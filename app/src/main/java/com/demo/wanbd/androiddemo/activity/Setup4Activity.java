@@ -1,6 +1,11 @@
 package com.demo.wanbd.androiddemo.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -61,12 +66,39 @@ public class Setup4Activity extends BaseSetupActivity {
 
     public void setupFinish(View view) {
         if (mCb_startsafe.isChecked()) {
-            startPage(LostFindActivity.class);
-            SPUtils.putBoolean(getApplicationContext(), MyConstant.SETUPSUCCENSSED, true);
+            // 开启防盗保护需要提前授予权限  发送接收短信  获取地理位置  开机完成
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS)  != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_SMS)) {
+                    ToastUtils.showShortToast(getApplicationContext(), "这个权限是必须的");
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, 1);
+                } else {
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, 1);
+                }
+            } else {
+                setupHasFinidhed();
+            }
+
         } else {
             ToastUtils.showShortToast(getApplicationContext(), "必须开启防盗保护");
         }
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 1) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                setupHasFinidhed();
+            } else {
+                ToastUtils.showShortToast(getApplicationContext(), "permission_group.SMS 权限被拒绝");
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    private void setupHasFinidhed() {
+        startPage(LostFindActivity.class);
+        SPUtils.putBoolean(getApplicationContext(), MyConstant.SETUPSUCCENSSED, true);
     }
 
     @Override

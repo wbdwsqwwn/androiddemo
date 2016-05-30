@@ -65,12 +65,29 @@
         android:clickable="true"
         android:text="点击重新进入设置向导界面"
         android:textSize="18sp"
+        android:onClick="clickToSetupActivity"
         />
 
+    <!-- 4个功能描述信息 -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
+        style="@style/lostfind_desc_style"
+        android:text="SIM卡变更报警"
+        />
+    <TextView
+        style="@style/lostfind_desc_style"
+        android:text="GPS追踪#*gps*#"
+        />
+    <TextView
+        style="@style/lostfind_desc_style"
+        android:text="远程锁屏#*lockscreen*#"
+        />
+    <TextView
+        style="@style/lostfind_desc_style"
+        android:text="远程清除数据#*wipedata*#"
+        />
+    <TextView
+        style="@style/lostfind_desc_style"
+        android:text="播放报警音乐#*music*#"
         />
 
 </LinearLayout>
