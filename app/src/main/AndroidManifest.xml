@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.demo.wanbd.androiddemo"
-    android:versionCode="2"
-    android:versionName="土豆版"
+          package="com.demo.wanbd.androiddemo"
+          android:versionCode="2"
+          android:versionName="土豆版"
     >
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
-    <uses-permission android:name="android.permission.READ_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:name=".Application.MyApplication"
@@ -24,25 +26,35 @@
         >
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <!-- <activity android:name=".activity.HomeActivity" /> -->
-        <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.Setup1Activity" />
-        <activity android:name=".activity.Setup2Activity" />
-        <activity android:name=".activity.Setup3Activity" />
-        <activity android:name=".activity.Setup4Activity" />
-        <activity android:name=".activity.LostFindActivity" />
-        <activity android:name=".activity.FriendsActivity" />
+        <activity android:name=".activity.HomeActivity"/>
+        <activity android:name=".activity.Setup1Activity"/>
+        <activity android:name=".activity.Setup2Activity"/>
+        <activity android:name=".activity.Setup3Activity"/>
+        <activity android:name=".activity.Setup4Activity"/>
+        <activity android:name=".activity.LostFindActivity"/>
+        <activity android:name=".activity.FriendsActivity"/>
 
         <service
             android:name=".service.LostFindService"
             android:enabled="true"
             android:exported="true"
-            ></service>
+            />
+
+        <receiver
+            android:name=".receiver.BootCompleteReceiver"
+            android:enabled="true"
+            android:exported="true"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
