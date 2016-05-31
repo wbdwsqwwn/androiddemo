@@ -95,6 +95,7 @@ public class Setup4Activity extends BaseSetupActivity {
         permissionsNeeded.add(Manifest.permission.SEND_SMS);
         permissionsNeeded.add(Manifest.permission.READ_SMS);
         permissionsNeeded.add(Manifest.permission.RECEIVE_BOOT_COMPLETED);
+        permissionsNeeded.add(Manifest.permission.RECEIVE_SMS);
 
         if (mCb_startsafe.isChecked()) {
             // 开启防盗保护需要提前授予权限  发送接收短信  获取地理位置  开机完成
