@@ -126,7 +126,7 @@ public class Setup4Activity extends BaseSetupActivity {
     private void setupHasFinidhed() {
         startPage(LostFindActivity.class);
         SPUtils.putBoolean(getApplicationContext(), MyConstant.SETUPSUCCENSSED, true);
-        SPUtils.putBoolean(getApplicationContext(), MyConstant.BOOTCOMPLETE, true);
+        SPUtils.putBoolean(getApplicationContext(), MyConstant.BOOTCOMPLETE, false);
     }
 
     @Override

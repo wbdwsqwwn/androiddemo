@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.demo.wanbd.androiddemo.R;
+import com.demo.wanbd.androiddemo.activity.blacklist.BlackListActivity;
 import com.demo.wanbd.androiddemo.utils.MyConstant;
 import com.demo.wanbd.androiddemo.utils.SPUtils;
 import com.demo.wanbd.androiddemo.utils.ToastUtils;
@@ -73,6 +74,10 @@ public class HomeActivity extends AppCompatActivity {
                         } else {
                             showEnterPasswordDialog();
                         }
+                        break;
+                    case 1:
+                        Intent intent = new Intent(getApplicationContext(), BlackListActivity.class);
+                        startActivity(intent);
                         break;
                 }
             }

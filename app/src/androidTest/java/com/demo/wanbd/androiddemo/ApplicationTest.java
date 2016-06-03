@@ -3,6 +3,7 @@ package com.demo.wanbd.androiddemo;
 import android.app.Application;
 import android.test.ApplicationTestCase;
 
+import com.demo.wanbd.androiddemo.dao.BlackListDao;
 import com.demo.wanbd.androiddemo.dao.ContactDao;
 import com.demo.wanbd.androiddemo.model.ContactModel;
 import com.demo.wanbd.androiddemo.utils.LogUtils;
@@ -22,5 +23,12 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         LogUtils.i("test  test test ====>>>>", list.toString());
         System.out.println("test  test test ====>>>>" + list.toString());
         assertEquals(117, list.size());
+    }
+
+    public void testBlackListAdd() {
+        BlackListDao dao = new BlackListDao(getContext());
+        for (int i = 1; i <= 100; i++) {
+            dao.add("1888888888" + i, i%4);
+        }
     }
 }

@@ -1,7 +1,6 @@
 package com.demo.wanbd.androiddemo.receiver;
 
 import android.content.BroadcastReceiver;
-import android.content.ContentProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.telephony.SmsManager;
@@ -22,7 +21,7 @@ public class BootCompleteReceiver extends BroadcastReceiver {
         LogUtils.i("BootCompleteReceiver", "接收到系统启动完毕的广播");
         // 获取SIM卡安全号码
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        String currentSIMNumber = tm.getSimSerialNumber() + "1";
+        String currentSIMNumber = tm.getSimSerialNumber();
         if (!currentSIMNumber.equals(SPUtils.getString(context, MyConstant.SIMNUMBER, null))) {
             // 获取到的号码与保存的号码不一致 发送报警短信
             SmsManager sm = SmsManager.getDefault();

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.demo.wanbd.androiddemo.activity.blacklist.BlackListActivity"
+    >
+    <!--标题-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            style="@style/sutup_title_style"
+            android:text="通讯卫士"
+            />
+        <ImageView
+            android:id="@+id/iv_black_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/blacklist_add_iv_selector"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            />
+    </RelativeLayout>
+    <!--下面展示的数据部分-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <!--没有黑名单数据的时候-->
+        <ImageView
+            android:id="@+id/iv_black_nodata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/empty"
+            android:layout_gravity="center"
+            />
+        <!--进度条-->
+        <include layout="@layout/progressbar_cicle_loading"></include>
+        <!--ListView-->
+        <ListView
+            android:id="@+id/lv_black_showdata"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ></ListView>
+    </FrameLayout>
+
+
+</LinearLayout>
