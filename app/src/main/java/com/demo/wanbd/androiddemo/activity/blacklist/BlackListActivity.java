@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -45,6 +46,7 @@ public class BlackListActivity extends AppCompatActivity {
     private PopupWindow mPopupWindow;
     private Animation mPopupAnimation;
     private View mPopupCOntentView;
+    private AlertDialog mDg_addblack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,14 @@ public class BlackListActivity extends AppCompatActivity {
         initData();
         initEvent();
         initPopupupWindow();
+        initAddBlackDialog();
+    }
+
+    private void initAddBlackDialog() {
+        View mDialogAddblack = View.inflate(this, R.layout.dialog_addblack_comfirm, null);
+        AlertDialog.Builder ab = new AlertDialog.Builder(this);
+        ab.setView(mDialogAddblack);
+        mDg_addblack = ab.create();
     }
 
     private void initPopupupWindow() {
@@ -88,6 +98,22 @@ public class BlackListActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void manualAdd(View view) {
+        LogUtils.i("BlackListActivity", "手动添加");
+        mDg_addblack.show();
+    }
+    public void smsAdd(View view) {
+        LogUtils.i("BlackListActivity", "短信添加");
+    }
+
+    public void callAdd(View view) {
+        LogUtils.i("BlackListActivity", "通话添加");
+    }
+
+    public void friendsAdd(View view) {
+        LogUtils.i("BlackListActivity", "朋友添加");
     }
 
     private Handler mHandler = new Handler(){
