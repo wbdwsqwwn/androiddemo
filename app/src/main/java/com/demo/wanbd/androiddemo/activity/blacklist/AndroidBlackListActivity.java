@@ -43,8 +43,7 @@ import com.demo.wanbd.androiddemo.utils.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlackListActivity extends AppCompatActivity {
-
+public class AndroidBlackListActivity extends AppCompatActivity {
     private ImageView mIv_black_add;
     private LinearLayout mLl_progress_root;
     private ListView mLv_black_showdata;
@@ -330,7 +329,7 @@ public class BlackListActivity extends AppCompatActivity {
         public View getView(int position, android.view.View convertView, ViewGroup parent) {
             ViewHolder holder;
             if (convertView == null) {
-                convertView = View.inflate(BlackListActivity.this, R.layout.item_blacklist_lv, null);
+                convertView = View.inflate(AndroidBlackListActivity.this, R.layout.item_blacklist_lv, null);
                 holder = new ViewHolder();
                 holder.iv_delButton = (ImageView) convertView.findViewById(R.id.iv_delete);
                 holder.tv_phone = (TextView) convertView.findViewById(R.id.tv_delete_phone);
@@ -340,12 +339,7 @@ public class BlackListActivity extends AppCompatActivity {
                 holder = (ViewHolder) convertView.getTag();
             }
             final BlackListModel blackListModel = (BlackListModel) getItem(position);
-//            LogUtils.i("------>>>>>>>>>", blackListModel.toString());
             holder.tv_phone.setText(blackListModel.getPhone());
-//            LogUtils.i("=====>>>>>>>>model=", String.valueOf(blackListModel.getModel()));
-//            LogUtils.i("=====>>>>>>>>PHONE_MODEL=", String.valueOf(BlackListDB.PHONE_MODEL));
-//            LogUtils.i("=====>>>>>>>>SMS_MODEL=", String.valueOf(BlackListDB.SMS_MODEL));
-//            LogUtils.i("=====>>>>>>>>ALL_MODEL=", String.valueOf(BlackListDB.ALL_MODEL));
             switch (blackListModel.getModel()) {
 
                 case BlackListDB.PHONE_MODEL:

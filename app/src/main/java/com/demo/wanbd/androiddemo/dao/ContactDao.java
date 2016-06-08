@@ -15,6 +15,36 @@ import java.util.List;
  */
 public class ContactDao {
 
+    public static List<ContactModel> getSMSContact(Context context) {
+        List<ContactModel> contacts = new ArrayList<>();
+        Uri smsUri = Uri.parse("content://sms");
+        Cursor cursor = context.getContentResolver().query(smsUri, new String[]{"address"}, null, null, null);
+        ContactModel model;
+        while (cursor.moveToNext()) {
+            model = new ContactModel();
+            model.setName("sms");
+            model.setPhone(cursor.getString(0));
+            contacts.add(model);
+        }
+        cursor.close();
+        return contacts;
+    }
+
+    public static List<ContactModel> getCallContact(Context context) {
+        List<ContactModel> contacts = new ArrayList<>();
+        Uri callUri = Uri.parse("content://call_log/calls");
+        Cursor cursor = context.getContentResolver().query(callUri, new String[]{"name", "number"}, null, null, null);
+        ContactModel model;
+        while (cursor.moveToNext()) {
+            model = new ContactModel();
+            model.setName(cursor.getString(0));
+            model.setPhone(cursor.getString(1));
+            contacts.add(model);
+        }
+        cursor.close();
+        return contacts;
+    }
+
     public static List<ContactModel> getAllContact(Context context) {
         List<ContactModel> contacts = new ArrayList();
         Uri uriContacts = Uri.parse("content://com.android.contacts/contacts");

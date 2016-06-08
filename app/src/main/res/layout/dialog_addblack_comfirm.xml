@@ -6,7 +6,7 @@
     >
     <!--标题-->
     <TextView
-        android:id="@+id/dg_setpwd_title"
+        android:id="@+id/dg_addblack_title"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="手动添加"
@@ -17,11 +17,11 @@
         />
     <!--第一个输入框-->
     <EditText
-        android:id="@+id/dg_addblack_phone"
+        android:id="@+id/et_addblack_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="输入黑名单号码"
-        android:inputType="textPassword"
+        android:inputType="phone"
         android:textSize="20sp"
         />
     <!--第二个输入框-->
@@ -54,7 +54,7 @@
         android:layout_marginTop="5dp"
         >
         <Button
-            android:id="@+id/dg_addblack_cancel"
+            android:id="@+id/bt_addblack_cancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -63,7 +63,7 @@
             android:background="@drawable/home_dialog_setpassword_selector"
             />
         <Button
-            android:id="@+id/dg_addblack_sure"
+            android:id="@+id/bt_addblack_sure"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

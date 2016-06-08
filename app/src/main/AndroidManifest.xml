@@ -16,6 +16,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
 
     <application
         android:name=".Application.MyApplication"
@@ -40,6 +42,8 @@
         <activity android:name=".activity.Setup4Activity" />
         <activity android:name=".activity.LostFindActivity" />
         <activity android:name=".activity.FriendsActivity" />
+        <activity android:name=".activity.blacklist.CallAddBlackActivity" />
+        <activity android:name=".activity.blacklist.SMSAddBlackActivity" />
 
         <service
             android:name=".service.LostFindService"
@@ -57,7 +61,8 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".activity.blacklist.BlackListActivity"></activity>
+        <activity android:name=".activity.blacklist.BlackListActivity" />
+        <activity android:name=".activity.blacklist.AndroidBlackListActivity"></activity>
     </application>
 
 </manifest>

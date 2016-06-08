@@ -11,4 +11,5 @@ public interface MyConstant {
     String SIMNUMBER = "simnumber";
     String SAFENUMBER = "safenumber";
     String BOOTCOMPLETE = "bootcomplete";
+    String BLACKLISTNUMBER = "blacklistnumber";
 }

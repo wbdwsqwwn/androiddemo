@@ -51,7 +51,7 @@ public class BlackListDao {
     public List<BlackListModel> findAll() {
         List<BlackListModel> data = new ArrayList<>();
         SQLiteDatabase database = mDB.getWritableDatabase();
-        Cursor cursor = database.query(BlackListDB.TB_NAME, new String[]{BlackListDB.PHONE, BlackListDB.MODEL}, null, null, null, null, BlackListDB.ID);
+        Cursor cursor = database.query(BlackListDB.TB_NAME, new String[]{BlackListDB.PHONE, BlackListDB.MODEL}, null, null, null, null, BlackListDB.ID + " desc");
         BlackListModel model;
         while (cursor.moveToNext()) {
             model = new BlackListModel();
@@ -87,6 +87,15 @@ public class BlackListDao {
     public void update(String phone, int model) {
         delete(phone);
         add(phone, model);
+    }
+
+    /**
+     * 更新数据
+     * @param model 黑名单模型
+     */
+    public void update(BlackListModel model) {
+        delete(model.getPhone());
+        add(model);
     }
 }
 
